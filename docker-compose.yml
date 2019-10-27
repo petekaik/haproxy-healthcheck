@@ -2,7 +2,7 @@ version: "2"
 
 services:
   haproxy:
-    image: library/haproxy:alpine
+    image: petekaik/haproxy-healthcheck
     container_name: haproxy
     volumes:
       - ${CONFIG}:/usr/local/etc/haproxy/haproxy.cfg:ro
