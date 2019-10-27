@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  haproxy:
+    image: library/haproxy:alpine
+    container_name: haproxy
+    volumes:
+      - ${CONFIG}:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ${CERTS}:/usr/local/etc/haproxy/certs:ro
+    network_mode: bridge
+    hostname: haproxy
+    ports:
+      - "${HTTP}:80"
+      - "${HTTPS}:443"
+    restart: always
